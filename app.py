@@ -3,15 +3,15 @@
 import os
 from flask import Flask, render_template, redirect, url_for
 from flask_login import LoginManager, login_required, current_user
+
 from config import Config
 from models import db, User
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# Ensure instance directory exists
-os.makedirs(os.path.join(Config.UPLOAD_FOLDER), exist_ok=True)
-os.makedirs(os.path.join(app.instance_path), exist_ok=True)
+# Ensure upload directory exists
+os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
 # Initialize extensions
 db.init_app(app)
@@ -36,8 +36,9 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(chat_bp)
 
 
-# ── Page Routes ──────────────────────────────────────────────────────────────
-
+# ----------------------------
+# Page Routes
+# ----------------------------
 
 @app.route("/")
 def landing():
@@ -54,14 +55,21 @@ def chat_page():
     return render_template("chat.html")
 
 
-# ── Database Initialization ─────────────────────────────────────────────────
-
+# ----------------------------
+# Database Initialization
+# ----------------------------
 
 with app.app_context():
-    db.create_all()
+    try:
+        db.create_all()
+    except Exception as e:
+        print(f"Database initialization skipped: {e}")
 
+
+# ----------------------------
+# Local Development
+# ----------------------------
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
-    app.run(debug=True, port=port)
-
+    app.run(host="0.0.0.0", port=port, debug=True)
