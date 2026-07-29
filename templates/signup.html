@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up — NexusAI{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+</div>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <a href="/" class="auth-logo">
+            <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+                <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" stroke="url(#aGrad)" stroke-width="2" fill="none"/>
+                <path d="M14 8L20 11V17L14 20L8 17V11L14 8Z" fill="url(#aGrad)"/>
+                <defs><linearGradient id="aGrad" x1="2" y1="2" x2="26" y2="26"><stop offset="0%" stop-color="#7c5cfc"/><stop offset="100%" stop-color="#5b8def"/></linearGradient></defs>
+            </svg>
+            <span>NexusAI</span>
+        </a>
+
+        <h1 class="auth-title">Create Account</h1>
+        <p class="auth-subtitle">Start your AI-powered journey today</p>
+
+        <form method="POST" action="{{ url_for('auth.signup') }}" class="auth-form" id="signupForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="{{ username|default('') }}"
+                       placeholder="Choose a username" required minlength="3" autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="{{ email|default('') }}"
+                       placeholder="you@example.com" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"
+                       placeholder="At least 6 characters" required minlength="6" autocomplete="new-password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password"
+                       placeholder="Repeat your password" required minlength="6" autocomplete="new-password">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" id="signupSubmit">
+                Create Account
+            </button>
+        </form>
+
+        <div class="auth-footer">
+            Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

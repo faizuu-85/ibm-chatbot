@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+
+{% block title %}NexusAI — Intelligent Conversations{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- ── Animated Background ─────────────────────────────────────────────── -->
+<div class="bg-animation">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+</div>
+
+<!-- ── Navigation ──────────────────────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">
+            <div class="logo-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" stroke="url(#logoGrad)" stroke-width="2" fill="none"/>
+                    <path d="M14 8L20 11V17L14 20L8 17V11L14 8Z" fill="url(#logoGrad)"/>
+                    <defs>
+                        <linearGradient id="logoGrad" x1="2" y1="2" x2="26" y2="26">
+                            <stop offset="0%" stop-color="#7c5cfc"/>
+                            <stop offset="100%" stop-color="#5b8def"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <span class="logo-text">NexusAI</span>
+        </a>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#how-it-works" class="nav-link">How it Works</a>
+            <a href="{{ url_for('auth.login') }}" class="btn btn-ghost">Log In</a>
+            <a href="{{ url_for('auth.signup') }}" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ── Hero Section ────────────────────────────────────────────────────── -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Powered by Google Gemini
+        </div>
+        <h1 class="hero-title">
+            Your Intelligent
+            <span class="gradient-text">AI Companion</span>
+            for Every Conversation
+        </h1>
+        <p class="hero-subtitle">
+            Experience the future of AI interaction. Upload files, share images, use voice commands,
+            and get beautifully formatted responses — all in one seamless interface.
+        </p>
+        <div class="hero-actions">
+            <a href="{{ url_for('auth.signup') }}" class="btn btn-primary btn-lg" id="heroGetStarted">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                Start Chatting — Free
+            </a>
+            <a href="#features" class="btn btn-secondary btn-lg" id="heroLearnMore">
+                Explore Features
+            </a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-value">∞</span>
+                <span class="stat-label">Conversations</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-value">10+</span>
+                <span class="stat-label">File Types</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-value">Real-time</span>
+                <span class="stat-label">Streaming</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Visual -->
+    <div class="hero-visual">
+        <div class="chat-preview">
+            <div class="chat-preview-header">
+                <div class="preview-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <span class="preview-title">NexusAI Chat</span>
+            </div>
+            <div class="chat-preview-body">
+                <div class="preview-msg preview-user">
+                    <p>Explain quantum computing in simple terms</p>
+                </div>
+                <div class="preview-msg preview-assistant">
+                    <p>Think of a regular computer as someone who reads a book <strong>one page at a time</strong>. A quantum computer reads <strong>all pages simultaneously</strong>! 🚀</p>
+                    <p class="typing-demo">This is possible through two key principles:</p>
+                    <div class="preview-code">
+                        <span class="code-label">Key Concepts</span>
+                        <code>1. Superposition — qubits exist in multiple states<br>2. Entanglement — qubits are interconnected</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Features Section ────────────────────────────────────────────────── -->
+<section class="features" id="features">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="section-tag">Features</span>
+            <h2 class="section-title">Everything You Need in an AI Assistant</h2>
+            <p class="section-desc">Built with powerful features to enhance every conversation.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" style="--icon-color: #7c5cfc;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                </div>
+                <h3>Streaming Responses</h3>
+                <p>Watch AI responses appear in real-time with smooth streaming animation, just like ChatGPT.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="--icon-color: #5b8def;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                </div>
+                <h3>File Upload</h3>
+                <p>Upload PDFs, DOCX, or TXT files. Content is extracted and sent as context to the AI.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="--icon-color: #4ecdc4;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                </div>
+                <h3>Image Understanding</h3>
+                <p>Upload images and ask questions about them using Gemini's vision capabilities.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="--icon-color: #f59e0b;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                        <line x1="12" y1="19" x2="12" y2="23"/>
+                        <line x1="8" y1="23" x2="16" y2="23"/>
+                    </svg>
+                </div>
+                <h3>Voice Input</h3>
+                <p>Speak your questions using the built-in voice recognition. No typing needed.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="--icon-color: #ef4444;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                </div>
+                <h3>Code Highlighting</h3>
+                <p>Beautiful syntax-highlighted code blocks with copy buttons. Supports 190+ languages.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon" style="--icon-color: #22c55e;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                    </svg>
+                </div>
+                <h3>Dark & Light Mode</h3>
+                <p>Switch between beautifully crafted dark and light themes. Your preference is saved.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── How It Works ────────────────────────────────────────────────────── -->
+<section class="how-it-works" id="how-it-works">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="section-tag">Getting Started</span>
+            <h2 class="section-title">Up and Running in Minutes</h2>
+            <p class="section-desc">Three simple steps to start your AI-powered conversations.</p>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Create Account</h3>
+                <p>Sign up with your email in seconds. Your conversations are private and secure.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Add API Key</h3>
+                <p>Enter your free Google Gemini API key in settings. Get one at ai.google.dev.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Start Chatting</h3>
+                <p>Ask questions, upload files, share images — NexusAI handles everything.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA Section ─────────────────────────────────────────────────────── -->
+<section class="cta">
+    <div class="section-container">
+        <div class="cta-card">
+            <h2>Ready to Experience the Future?</h2>
+            <p>Join NexusAI and unlock the power of intelligent conversations.</p>
+            <a href="{{ url_for('auth.signup') }}" class="btn btn-primary btn-lg" id="ctaSignup">
+                Get Started for Free
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ── Footer ──────────────────────────────────────────────────────────── -->
+<footer class="footer">
+    <div class="section-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="nav-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+                            <path d="M14 2L26 8V20L14 26L2 20V8L14 2Z" stroke="url(#logoGrad2)" stroke-width="2" fill="none"/>
+                            <path d="M14 8L20 11V17L14 20L8 17V11L14 8Z" fill="url(#logoGrad2)"/>
+                            <defs>
+                                <linearGradient id="logoGrad2" x1="2" y1="2" x2="26" y2="26">
+                                    <stop offset="0%" stop-color="#7c5cfc"/>
+                                    <stop offset="100%" stop-color="#5b8def"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="logo-text">NexusAI</span>
+                </div>
+                <p class="footer-tagline">Intelligent conversations, beautifully crafted.</p>
+            </div>
+            <div class="footer-copy">
+                &copy; 2025 NexusAI. Built with Flask &amp; Gemini.
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+{% endblock %}
